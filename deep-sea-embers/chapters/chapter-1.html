@@ -12,21 +12,21 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 flex flex-col h-screen">
+<body class="bg-gray-900 text-gray-200 flex flex-col h-screen">
 
 <!-- Header -->
-<header class="bg-blue-500 text-white p-4 flex justify-between items-center">
-    <button id="titlePage" class="bg-blue-700 px-4 py-2 rounded">Головна</button>
+<header class="bg-gray-800 text-gray-200 p-4 flex justify-between items-center">
+    <a href="/" id="titlePage" class="bg-gray-700 px-4 py-2 rounded">Головна</a>
     <h1 class="text-2xl font-bold">Deep Sea Embers</h1>
     <div>
-        <button id="prevChapter" class="bg-blue-700 px-4 py-2 rounded mr-2">Попередній розділ</button>
-        <button id="nextChapter" class="bg-blue-700 px-4 py-2 rounded">Наступний розділ</button>
+        <!--<a href="/prev-chapter" id="prevChapter" class="bg-gray-700 px-4 py-2 rounded mr-2">Попередній розділ</a>-->
+        <a href="/chapter-2" id="nextChapter" class="bg-gray-700 px-4 py-2 rounded">Наступний розділ</a>
     </div>
 </header>
 
 <!-- Main Content -->
 <main class="flex-1 p-4 overflow-auto">
-    <h2>Розділ 1: Того дня стояв густий туман</h2>
+    <h2 class="text-xl font-semibold">Розділ 1: Того дня стояв густий туман</h2>
     <div id="content" class="text-custom">
         <p>Безмежний туман густо стелився за вікном, і здавалося, що зовнішній світ зникає по той бік, залишаючи лише хаотичне, неясне світло, яке якимось чином проникало в цей дім. Саме завдяки цій тьмяності світло підтримувало цю моторошну тишу. У трохи безладній однокімнатній квартирі Чжоу Мін лежав за столом, на якому лежала довга купа сміття, розкидана по всій поверхні. Його стан можна було описати лише як виснажений, коли він писав у своєму щоденнику: "На сьомий день нічого не змінилося, а ззовні все огорнув густий туман. Не знаю як, але невідома сила замкнула вікно і позбавила мене можливості відчинити його. Здавалося, що вся кімната була чимось "закинута" в ізольований простір...." "Я також не можу зв'язатися із зовнішнім світом. Електрику вимкнули з самого початку, разом з краном, з якого не текла вода. Дивно, але світло працювало, і комп'ютер продовжував працювати - я вирвав шнур зі стіни, щоб подивитися...." Ніби з вікна раптово подув легкий вітерець, Чжоу Мін піднявся зі свого занурення в щоденник і подивився вгору своїми втомленими очима. На жаль, шум був нічим іншим, як його власною ілюзією. Нічого не змінилося, лише нескінченний рух затяжного туману за вікном і моторошна тиша його ізольованої кімнати в квартирі. Потім його погляд впав на підвіконня, де він залишив гайкові ключі та молотки - там ще залишилися сліди його спроб протягом останніх семи днів розбити скло. Але тепер ці інструменти - не більше ніж глузливі свідчення невдачі. Через кілька секунд вираз обличчя Чжоу Міна знову стає спокійним - з цим незвичним спокоєм він знову опускає голову і повертається до свого письма: "Я потрапив у пастку і не знаю, як з неї вибратися. Останніми днями я навіть думав про те, щоб розібрати дах і стіни. Але, витративши всі свої сили та ідеї, я не зміг зробити навіть вм'ятину в цих стінах. Це наче стіни - це коробка, а я - миша, що потрапила в цю коробку і не може вийти....".</p>
 
@@ -43,14 +43,14 @@
 </main>
 
 <!-- Footer -->
-<footer class="bg-gray-800 text-white p-4 flex justify-between items-center">
+<footer class="bg-gray-800 text-gray-200 p-4 flex justify-between items-center">
     <div>
         <label for="fontSize" class="mr-2">Розмір шрифту:</label>
         <input id="fontSize" type="range" min="12" max="36" value="16" class="w-32">
     </div>
     <div>
         <label for="fontFamily" class="mr-2">Шрифт:</label>
-        <select id="fontFamily" class="bg-gray-700 text-white">
+        <select id="fontFamily" class="bg-gray-700 text-gray-200">
             <option value="'Arial', sans-serif">Arial</option>
             <option value="'Times New Roman', serif">Times New Roman</option>
             <option value="'Courier New', monospace">Courier New</option>
@@ -60,36 +60,6 @@
 
 <!-- JavaScript -->
 <script>
-    // Sample chapters
-    const chapters = [
-        "Глава 1: Це початок історії. Тут буде текст глави 1.",
-        "Глава 2: Продовження історії. Тут буде текст глави 2.",
-        "Глава 3: Далі в історії. Тут буде текст глави 3."
-    ];
-    let currentChapter = 0;
-
-    function updateContent() {
-        document.getElementById('content').innerText = chapters[currentChapter];
-    }
-
-    document.getElementById('titlePage').addEventListener('click', () => {
-        alert('Перехід на головну сторінку');
-    });
-
-    document.getElementById('prevChapter').addEventListener('click', () => {
-        if (currentChapter > 0) {
-            currentChapter--;
-            updateContent();
-        }
-    });
-
-    document.getElementById('nextChapter').addEventListener('click', () => {
-        if (currentChapter < chapters.length - 1) {
-            currentChapter++;
-            updateContent();
-        }
-    });
-
     document.getElementById('fontSize').addEventListener('input', (event) => {
         document.documentElement.style.setProperty('--font-size', `${event.target.value}px`);
     });
@@ -97,9 +67,6 @@
     document.getElementById('fontFamily').addEventListener('change', (event) => {
         document.documentElement.style.setProperty('--font-family', event.target.value);
     });
-
-    // Initial content load
-    updateContent();
 </script>
 
 </body>
